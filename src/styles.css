@@ -79,7 +79,7 @@ html {
 
 body {
   margin: 0;
-  font: 16px/1.5 "Roboto Slab", sans-serif;
+  font: 16px/1.5 'Roboto Slab', sans-serif;
   background: #000;
 }
 
@@ -91,6 +91,12 @@ body {
   color: #111;
   font-size: 2rem;
   font-weight: 300;
+}
+
+.kawaii {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
