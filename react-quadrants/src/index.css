@@ -137,6 +137,12 @@ body {
   color: cornflowerblue;
 }
 
+.api-image {
+  margin-top: -50px;
+  height: 75%;
+  width: auto;
+}
+
 
 
 /*# sourceMappingURL=styles.css.map */
