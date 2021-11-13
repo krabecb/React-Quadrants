@@ -10,35 +10,22 @@ const contentStyles = {
 };
 
 class Section extends Component {
-	state = {
-		data: "",
-	};
-
-	getRandomImage = (arr) => {
-		const rand = Math.random() * arr.length;
-		const index = Math.floor(rand);
-		const url = arr[index].images.preview_gif.url;
-		this.setState({ data: url });
-	};
-
-	handleOnClick = () => this.getRandomImage(this.props.apiData);
 
 	generateContent = () => {
-		if (!this.state.data && this.props.apiData.length) {
-			this.getRandomImage(this.props.apiData);
-			return <Loader styles={contentStyles} />;
-		} else {
+		if (this.props.apiData) {
 			return (
 				<div style={contentStyles}>
-					<img alt="random gif" src={this.state.data} />
+					<img alt="random gif" src={this.props.apiData} />
 				</div>
 			);
+		} else {
+			return <Loader styles={contentStyles} />;
 		}
 	};
 
 	render() {
 		return (
-			<section className="section" onClick={this.handleOnClick}>
+			<section className="section">
 				{this.generateContent()}
 			</section>
 		);
