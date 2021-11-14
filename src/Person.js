@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { MoodContext2 } from './MoodContext2';
+
 
 // import { Grid } from '@giphy/react-components'
 // import { GiphyFetch } from '@giphy/js-fetch-api'
@@ -13,6 +15,7 @@ import React, { useEffect, useState } from 'react';
 const useFetch = (url) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { value2, setValue2 } = useContext(MoodContext2);
 
 
     useEffect(() => {
@@ -22,23 +25,26 @@ const useFetch = (url) => {
             const [item] = data.results;
             setData(item);
             setLoading(false);
+            setValue2('blissful');
         }
         getData()
     }, [url])
     console.log(data)
-    return {data, loading};
+    return {data, loading, value2};
 }
 
 
-function Person() {
-    const {data, loading} = useFetch('https://api.randomuser.me/')
+export default function Person() {
+    const {data, loading, value2} = useFetch('https://api.randomuser.me/')
     // fetch('https://poetrydb.org/random/1/lines.json')
     // https://api.randomuser.me/
+
+    
     
     return(
         <div className='section kawaii'>
             {/* <Grid width={400} columns = {3} fetchGifs={fetchGifs} /> */}
-            {loading ? <div>...loading</div> : 
+            {loading ? <img src='https://i.imgur.com/6Hq8096.gif'/> : 
             <div>
                 {data.name.first}
                 %
@@ -51,4 +57,4 @@ function Person() {
     )
 }
 
-export default Person 
+ 
