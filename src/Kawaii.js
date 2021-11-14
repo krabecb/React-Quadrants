@@ -29,7 +29,10 @@ function Kawaii(props) {
     out lolol. learned a lot though. It took me a great deal of time to figure out that I needed to 
     1st: apply useContext. then 2nd: use each of the components with the fetch hook as the parent to the 
     Kawaii. I was also saved by Eric to start on the toggle route becuase I don't think I would've figured
-    this out without that little clue lol. */
+    this out without that little clue lol.
+    
+    also I couldn't get it to where I could re-fetch except for toggling between the 'click that button' and component view. 
+    If you have any insight/ guidance on that I'd really appreciate the feedback!*/
     
 
 
