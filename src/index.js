@@ -1,37 +1,65 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import Button from "./Button";
 import Section from "./Section";
+import Kawaii from './Kawaii'
 
 import "./styles.css";
 
-const apiKey = process.env.REACT_APP_API_KEY;
-const searchTerm = "art";
-const fetchUrl = `https://api.giphy.com/v1/gifs/search?q=${searchTerm}&limit=50&api_key=${apiKey}`;
+const dogApi = "https://random.dog/woof.json"
+const foxApi = "https://randomfox.ca/floof/"
 
-class ArtApi extends Component {
-	state = {
-		apiData: [],
-	};
+class MyApi extends Component {
+	constructor(props) {
+		super(props);
+	
+		this.state = {
+			apiData1: [],
+			apiData2: [],
+			callFirst: false,
+			callSecond: false,
+		}
+	}
+
 
 	componentDidMount() {
-		fetch(fetchUrl)
+		fetch(dogApi)
 			.then((res) => res.json())
-			.then((json) => this.setState({ apiData: json.data }));
+			.then((data) => this.setState({ apiData1: data.url }))
+			.then(() => (this.setState({ callFirst: true })))
+		
+		fetch(foxApi)
+			.then((res) => res.json())
+			.then((data) => this.setState({ apiData2: data.image }))
+			.then(() => (this.setState({ callSecond: true })))
+			
+	}
+
+	handleApiCall = () => {
+		fetch(dogApi)
+			.then((res) => res.json())
+			.then((data) => this.setState({ apiData1: data.url })
+			);
+		
+		fetch(foxApi)
+			.then((res) => res.json())
+			.then((data) => this.setState({ apiData2: data.image })
+			);
 	}
 
 	render() {
 		return (
 			<div className="main">
-				<Section apiData={this.state.apiData} />
-				<Section apiData={this.state.apiData} />
-				<Section apiData={this.state.apiData} />
-				<Section apiData={this.state.apiData} />
+				<Section apiData={this.state.apiData1} />
+				<Section apiData={this.state.apiData2} />
+				{this.state.callFirst && this.state.callSecond ? <Kawaii mood={'happy'}/> : <Kawaii mood={'sad'} />}
+				<Button onClickFunction={ this.handleApiCall }/>
 			</div>
 		);
 	}
 }
 
-export default ArtApi;
+export default MyApi;
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<ArtApi />, rootElement);
+ReactDOM.render(<MyApi />, rootElement);
