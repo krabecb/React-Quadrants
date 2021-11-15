@@ -10,27 +10,41 @@ const contentStyles = {
 };
 
 class Section extends Component {
-	state = {
-		data: "",
-	};
 
-	getRandomImage = (arr) => {
-		const rand = Math.random() * arr.length;
-		const index = Math.floor(rand);
-		const url = arr[index].images.preview_gif.url;
-		this.setState({ data: url });
-	};
+	
+		// this.props.getRandomImage(this.state.data);
+	
+	//Moving below section upward to index.js so UpdateButton.js can access functions
 
-	handleOnClick = () => this.getRandomImage(this.props.apiData);
+	// getRandomImage = (arr) => {
+	// 	console.log(arr);
+	// 	const rand = Math.random() * arr.length;
+	// 	const index = Math.floor(rand);
+
+	// 	if (arr[index].image) {
+	// 		const url = arr[index].image;
+	// 		this.setState({ data: url });
+	// 	} else if (arr[index].images) {
+	// 		const url = arr[index].images.preview_gif.url;
+	// 		this.setState({ data: url });
+	// 	}
+	// };
+
+	// handleOnClick = () => this.getRandomImage(this.props.apiData);
 
 	generateContent = () => {
-		if (!this.state.data && this.props.apiData.length) {
-			this.getRandomImage(this.props.apiData);
+
+		// if (!this.state.data && this.props.apiData.length) {
+		if (!this.props.apiDataParsed && this.props.apiData.length) {
+
+			//Commenting below line out will require you to click each image on page reload before .gif will display. Goal?
+			// this.getRandomImage(this.props.apiData);
 			return <Loader styles={contentStyles} />;
-		} else {
+		}
+		else {
 			return (
 				<div style={contentStyles}>
-					<img alt="random gif" src={this.state.data} />
+					<img alt="random gif" src={this.props.apiDataParsed} />
 				</div>
 			);
 		}
@@ -38,7 +52,7 @@ class Section extends Component {
 
 	render() {
 		return (
-			<section className="section" onClick={this.handleOnClick}>
+			<section className="section" /*onClick={this.handleOnClick}*/ >
 				{this.generateContent()}
 			</section>
 		);
