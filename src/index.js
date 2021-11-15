@@ -20,8 +20,7 @@ class ArtApi extends Component {
 		apiData2: [],
 		apiDataParsed: "",
 		apiData2Parsed: "",
-		kawaii: true,
-		button: true,
+		kawaiiMood: "sad",
 	};
 
 	componentDidUpdate(prevProps, prevState) {
@@ -36,6 +35,10 @@ class ArtApi extends Component {
 			const url = this.state.apiData2Parsed;
 			console.log("Displaying new state: " + this.state.apiData2Parsed);
 			this.setState({ apiData2Parsed: url});
+		}
+		if (prevState.apiData2Parsed !== this.state.apiData2Parsed) {
+			const mood = "happy";
+			this.setState({kawaiiMood: mood});
 		}
 	}
 
@@ -84,6 +87,7 @@ class ArtApi extends Component {
 		}
 	};
 
+	//Duplicated so the two separate APIs will both render
 	handleOnClick = () => {
 		this.getRandomImage(this.state.apiData);
 		this.getRandomImage(this.state.apiData2);
@@ -95,7 +99,7 @@ class ArtApi extends Component {
 			<div className="main">
 				<Section apiData={this.state.apiData} apiDataParsed={this.state.apiDataParsed} />
 				<Section apiData={this.state.apiData2} apiDataParsed={this.state.apiData2Parsed} />
-				<Kawaii />
+				<Kawaii mood={this.state.kawaiiMood}/>
 				<UpdateButton onClick={this.handleOnClick}/>
 			</div>
 		);

@@ -10,9 +10,7 @@ const contentStyles = {
 };
 
 class Section extends Component {
-	state = {
-		data: "",
-	};
+
 	
 		// this.props.getRandomImage(this.state.data);
 	
