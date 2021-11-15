@@ -84,7 +84,10 @@ class ArtApi extends Component {
 		}
 	};
 
-	handleOnClick = () => this.getRandomImage(this.state.apiData);
+	handleOnClick = () => {
+		this.getRandomImage(this.state.apiData);
+		this.getRandomImage(this.state.apiData2);
+	}
 	// handleOnClick = () => this.getRandomImage(this.props.apiData);
 
 	render() {
