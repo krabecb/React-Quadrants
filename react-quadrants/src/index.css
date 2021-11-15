@@ -1,3 +1,18 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+}
 .section {
   position: absolute;
   z-index: 0;
@@ -14,22 +29,22 @@
 .section:nth-child(1) {
   top: 0;
   left: 0;
-  background: #fff;
+  background: lightblue;
 }
 .section:nth-child(2) {
   top: 0;
   left: 50%;
-  background: #fff;
+  background: lightpink;
 }
 .section:nth-child(3) {
   top: 50%;
   left: 0;
-  background: #fff;
+  background: lightyellow;
 }
 .section:nth-child(4) {
   top: 50%;
   left: 50%;
-  background: #fff;
+  background: rgb(147, 236, 232);
 }
 .section.is-expanded {
   top: 0;
@@ -92,5 +107,42 @@ body {
   font-size: 2rem;
   font-weight: 300;
 }
+
+.content {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 17.5%;
+  text-align: center;
+}
+
+.content button {
+  width: 300px;
+  height: 75px;
+  border: none;
+  background: linear-gradient(to left, cornflowerblue 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  border-radius: 10px;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  transition: all .5s ease;
+}
+
+.content button:hover {
+  background-position: left bottom;
+  color: cornflowerblue;
+}
+
+.api-image {
+  margin-top: -50px;
+  height: 75%;
+  width: auto;
+}
+
+
 
 /*# sourceMappingURL=styles.css.map */
