@@ -40,7 +40,7 @@ function Kawaii(props) {
         <div className='section kawaii'>
             {/*if both contexts aren't blissful, it'll wait for the promise to finish to change back. */}
             { 
-                (value === 'blissful' && value2 === 'blissful') ?
+                (value === 'blissful' && value2 === 'blissful' && props.isToggled) ?
                 <Planet className='section kawaii' size={200} mood={'blissful'} color="#FDA7DC" /> :
                 <Planet className='section kawaii' size={200} mood={'sad'} color="#FDA7DC" />
             }

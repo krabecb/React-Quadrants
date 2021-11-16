@@ -18,7 +18,7 @@ const ArtApi = () => {
 			<div className="main">
                 <MoodContext.Provider value={{value, setValue}}>
                     <MoodContext2.Provider value={{value2, setValue2}}>
-                        <Kawaii />
+                        <Kawaii isToggled={isToggled}/>
                         
                         {/* { isToggled ? <div className='section kawaii'><Planet className='section kawaii' size={200} mood={'happy'} color="#FDA7DC" /></div> : <div className='section kawaii'><Planet size={200} mood={'sad'} color="#FDA7DC" /></div>} */}
                     
