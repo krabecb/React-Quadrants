@@ -93,4 +93,18 @@ body {
   font-weight: 300;
 }
 
+.kawaii {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+}
+
 /*# sourceMappingURL=styles.css.map */
